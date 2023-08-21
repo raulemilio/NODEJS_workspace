@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-button routerLink="/home">
+              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+      <ion-title>Dispositivo {{this.idDispositivo}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div id="highcharts" style="width:100%; height:300px;"></div>
+  <ion-button (click)="registrarMedicionLog()" expand="block">ABRIR-CERRAR ELECTROVÁLVULA</ion-button>
+  <div>
+    <div *ngIf="this.estado" class="ion-text-center">Estado actual de Electroválvula: Cerrada </div>
+    <div *ngIf="!this.estado"class="ion-text-center">Estado actual de Electroválvula: Abierta </div>
+  </div>
+
+  <ion-button expand="full" routerLink="/medicion/{{this.idDispositivo}}" >VER TODAS LAS MEDICIONES</ion-button>
+  <ion-button expand="full" routerLink="/log/{{this.idDispositivo}}">VER LOG RIEGOS</ion-button>
+</ion-content>
